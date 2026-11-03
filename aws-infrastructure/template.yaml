@@ -7,6 +7,11 @@ Globals:
     Runtime: python3.12
     MemorySize: 128
 Resources:
+  ContactApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors: '"*"'
   ContactFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -25,12 +30,13 @@ Resources:
         Contact:
           Type: Api
           Properties:
+            RestApiId: !Ref ContactApi
             Path: /contact
             Method: post
 Outputs:
   ContactApiUrl:
     Description: Contact form API URL
-    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/contact
+    Value: !Sub https://${ContactApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/contact
 Parameters:
   RecipientEmail:
     Type: String
