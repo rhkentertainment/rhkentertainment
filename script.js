@@ -16,7 +16,7 @@ document.getElementById('inquiry').addEventListener('submit', async function(eve
   }
 });
 
-const CONTACT_API_URL = 'https://684v7ekswa.execute-api.us-east-2.amazonaws.com/Prod/contact';
+const CONTACT_API_URL = 'https://8i2h26n0ae.execute-api.us-east-2.amazonaws.com/Prod/contact';
 
 const talentTrack = document.getElementById('talent-track');
 const talentPrev = document.getElementById('talent-prev');
