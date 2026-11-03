@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: RHK Entertainment contact form API
+Globals:
+  Function:
+    Timeout: 10
+    Runtime: python3.12
+    MemorySize: 128
+Resources:
+  ContactFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: contact-function/
+      Handler: app.lambda_handler
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action: ses:SendEmail
+              Resource: '*'
+      Environment:
+        Variables:
+          RECIPIENT_EMAIL: !Ref RecipientEmail
+          SENDER_EMAIL: !Ref SenderEmail
+      Events:
+        Contact:
+          Type: Api
+          Properties:
+            Path: /contact
+            Method: post
+Outputs:
+  ContactApiUrl:
+    Description: Contact form API URL
+    Value: !Sub https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/contact
+Parameters:
+  RecipientEmail:
+    Type: String
+    Default: rhkentertainmentllc@gmail.com
+  SenderEmail:
+    Type: String
+    Default: rhkentertainmentllc@gmail.com

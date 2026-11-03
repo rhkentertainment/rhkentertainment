@@ -1,8 +1,22 @@
 document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('inquiry').addEventListener('submit', function(event) {
+document.getElementById('inquiry').addEventListener('submit', async function(event) {
   event.preventDefault();
-  document.getElementById('form-status').textContent = 'Preview only — your inquiry has not been sent or saved. Online inquiries will be available soon.';
+  const status = document.getElementById('form-status');
+  const form = new FormData(event.currentTarget);
+  const payload = Object.fromEntries(form.entries());
+  status.textContent = CONTACT_API_URL ? 'Sending your inquiry…' : 'Online inquiries will be available soon.';
+  if (!CONTACT_API_URL) return;
+  try {
+    const response = await fetch(CONTACT_API_URL, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)});
+    if (!response.ok) throw new Error('Request failed');
+    event.currentTarget.reset();
+    status.textContent = 'Thanks — your inquiry was sent. We’ll be in touch soon.';
+  } catch (error) {
+    status.textContent = 'We couldn’t send that right now. Please try again or call us.';
+  }
 });
+
+const CONTACT_API_URL = '';
 
 const talentTrack = document.getElementById('talent-track');
 const talentPrev = document.getElementById('talent-prev');
