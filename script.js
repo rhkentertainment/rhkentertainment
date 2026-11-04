@@ -8,11 +8,14 @@ document.getElementById('inquiry').addEventListener('submit', async function(eve
   if (!CONTACT_API_URL) return;
   try {
       const response = await fetch(CONTACT_API_URL, {method: 'POST', body: new URLSearchParams(payload)});
-    if (!response.ok) throw new Error('Request failed');
+      if (!response.ok) {
+        const detail = await response.text();
+        throw new Error(`HTTP ${response.status}: ${detail}`);
+      }
     event.currentTarget.reset();
     status.textContent = 'Thanks — your inquiry was sent. We’ll be in touch soon.';
   } catch (error) {
-    status.textContent = 'We couldn’t send that right now. Please try again or call us.';
+      status.textContent = `Form error: ${error.message || 'Request failed'}`;
   }
 });
 
