@@ -1,8 +1,9 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 document.getElementById('inquiry').addEventListener('submit', async function(event) {
   event.preventDefault();
+  const formElement = event.currentTarget;
   const status = document.getElementById('form-status');
-  const form = new FormData(event.currentTarget);
+  const form = new FormData(formElement);
   const payload = Object.fromEntries(form.entries());
   status.textContent = CONTACT_API_URL ? 'Sending your inquiry…' : 'Online inquiries will be available soon.';
   if (!CONTACT_API_URL) return;
@@ -12,7 +13,7 @@ document.getElementById('inquiry').addEventListener('submit', async function(eve
         const detail = await response.text();
         throw new Error(`HTTP ${response.status}: ${detail}`);
       }
-    event.currentTarget.reset();
+      formElement.reset();
     status.textContent = 'Thanks — your inquiry was sent. We’ll be in touch soon.';
   } catch (error) {
       status.textContent = `Form error: ${error.message || 'Request failed'}`;
