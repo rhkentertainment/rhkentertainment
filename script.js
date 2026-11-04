@@ -7,7 +7,7 @@ document.getElementById('inquiry').addEventListener('submit', async function(eve
   status.textContent = CONTACT_API_URL ? 'Sending your inquiry…' : 'Online inquiries will be available soon.';
   if (!CONTACT_API_URL) return;
   try {
-    const response = await fetch(CONTACT_API_URL, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)});
+      const response = await fetch(CONTACT_API_URL, {method: 'POST', body: new URLSearchParams(payload)});
     if (!response.ok) throw new Error('Request failed');
     event.currentTarget.reset();
     status.textContent = 'Thanks — your inquiry was sent. We’ll be in touch soon.';

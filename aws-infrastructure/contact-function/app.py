@@ -1,5 +1,6 @@
 import json
 import os
+from urllib.parse import parse_qs
 import boto3
 
 ses = boto3.client("ses")
@@ -10,9 +11,14 @@ def response(status, body):
 def lambda_handler(event, context):
     if event.get("requestContext", {}).get("http", {}).get("method") == "OPTIONS" or event.get("httpMethod") == "OPTIONS":
         return response(204, {})
+    raw_body = event.get("body") or ""
+    content_type = (event.get("headers") or {}).get("content-type", "")
     try:
-        body = json.loads(event.get("body") or "{}")
-    except json.JSONDecodeError:
+        if "application/x-www-form-urlencoded" in content_type:
+            body = {key: values[0] for key, values in parse_qs(raw_body).items()}
+        else:
+            body = json.loads(raw_body or "{}")
+    except (json.JSONDecodeError, ValueError):
         return response(400, {"error": "Invalid request."})
     if body.get("website"):
         return response(200, {"ok": True})
