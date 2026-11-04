@@ -24,12 +24,10 @@ def lambda_handler(event, context):
         return response(200, {"ok": True})
     name = str(body.get("name", "")).strip()
     email = str(body.get("email", "")).strip()
-    event_type = str(body.get("event", "")).strip()
-    date = str(body.get("date", "")).strip()
     details = str(body.get("details", "")).strip()
-    if not name or not email or "@" not in email or not event_type:
-        return response(400, {"error": "Please provide your name, email, and event type."})
+    if not name or not email or "@" not in email or not details:
+        return response(400, {"error": "Please provide your name, email, and event details."})
     subject = f"New RHK Entertainment inquiry from {name}"
-    text = f"Name: {name}\nEmail: {email}\nEvent type: {event_type}\nEvent date: {date or 'Not provided'}\n\nDetails:\n{details or 'Not provided'}"
+    text = f"Name: {name}\nEmail: {email}\n\nEvent details:\n{details}"
     ses.send_email(Source=os.environ["SENDER_EMAIL"], Destination={"ToAddresses": [os.environ["RECIPIENT_EMAIL"]]}, Message={"Subject": {"Data": subject}, "Body": {"Text": {"Data": text}}})
     return response(200, {"ok": True})
