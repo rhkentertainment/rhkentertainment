@@ -81,3 +81,9 @@ header nav{font-size:15px;font-weight:700}
  .events-image{grid-area:photo}
  .events-copy .event-list{grid-area:copy;margin-top:0}
 }
+
+/* SVG symbols stay monochrome across desktop and mobile platforms. */
+.icon{display:inline-block;width:24px;height:24px;flex-shrink:0;vertical-align:middle}
+.ticker .icon-star{width:30px;height:30px}
+.talent-bio .icon-arrow{width:20px;height:20px}
+@media(max-width:700px){.ticker .icon-star{width:clamp(16px,3.6vw,25px);height:clamp(16px,3.6vw,25px)}}
