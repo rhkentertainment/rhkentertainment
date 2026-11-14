@@ -94,7 +94,3 @@ header nav{font-size:15px;font-weight:700}
 .section-photo-frame>img{position:relative;z-index:1;box-shadow:18px 18px 0 var(--lime)}
 @media(max-width:1050px){.services-photo-frame{max-width:682px;margin:auto}}
 @media(max-width:700px){.section-photo-frame{padding:0 12px 12px 0}.section-photo-frame::after{width:75%;height:65%}.section-photo-frame>img{box-shadow:12px 12px 0 var(--lime)}}
-
-/* Purple services frame; events and team frames retain lime. */
-.services-photo-frame>img{box-shadow:18px 18px 0 var(--purple)}
-@media(max-width:700px){.services-photo-frame>img{box-shadow:12px 12px 0 var(--purple)}}
