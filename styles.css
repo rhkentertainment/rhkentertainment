@@ -24,7 +24,7 @@
 .services h2 span,.about h2 span{color:var(--lime)}
 .services h2,.events h2,.about h2,.contact h2,.talent h2{margin-top:0}
 .image-top{font-family:'Barlow Condensed','Arial Narrow',Impact,sans-serif;font-size:clamp(22px,3vw,36px);font-weight:700;letter-spacing:1px;padding:14px 12px;line-height:1.1}
-.image-bottom{justify-content:center;text-align:center}
+.image-bottom{justify-content:center;text-align:center;font-size:18px;font-weight:800;line-height:1.25;letter-spacing:1px}
 .service-grid p{min-height:0}
 @media(max-width:700px){.image-top{font-size:clamp(24px,6vw,36px)}}
 
