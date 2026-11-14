@@ -52,5 +52,5 @@ header nav{font-size:15px;font-weight:700}
 /* Single team photograph for the About section. */
 .single-about-photo{min-height:0;position:relative;padding:0 22px 22px 0}
 .single-about-photo::after{content:"";position:absolute;right:0;bottom:0;width:72%;height:72%;background:var(--purple);z-index:0}
-.team-photo{position:relative;z-index:1;width:100%;height:540px;background-image:url('assets/rhk-team-event.jpg');background-size:cover;background-position:center 46%;box-shadow:18px 18px 0 var(--lime)}
+.team-photo{position:relative;z-index:1;width:100%;height:540px;background-image:url('assets/rhk-team-branded.png');background-size:cover;background-position:center 46%;box-shadow:18px 18px 0 var(--lime)}
 @media(max-width:700px){.single-about-photo{padding:0 12px 12px 0}.team-photo{height:430px;box-shadow:12px 12px 0 var(--lime);background-position:center 42%}.single-about-photo::after{width:75%;height:65%}}
