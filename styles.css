@@ -9,7 +9,7 @@
 
 /* Original event photographs replace the temporary flyer crops. */
 .photo{background-size:cover}
-.dj{background-image:url('assets/hero-sequoia.png');background-position:62% center;filter:none}
+.dj{background-image:url('assets/hero-sequoia-edited.png');background-position:62% center;filter:none}
 .host{background-image:url('assets/live-event.webp');background-position:center}
 .gear{background-image:url('assets/sound-lighting.jpg');background-position:center}
 @media(max-width:700px){.dj{background-position:42% center}.host{background-position:center}.gear{background-position:center}}
