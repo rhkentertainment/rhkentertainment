@@ -57,7 +57,7 @@ header nav{font-size:15px;font-weight:700}
 
 /* Services and events photography. */
 .services-layout{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:center;margin-top:40px}
-.services-image{display:block;width:100%;height:auto;border-bottom:6px solid var(--purple)}
+.services-image{display:block;width:100%;height:auto;border:0}
 .services-layout .service-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0}
 .services-layout .service-grid article{padding:24px!important;border-bottom:1px solid var(--line)}
 .services-layout .service-grid article:nth-child(2n){border-right:0}
@@ -65,7 +65,7 @@ header nav{font-size:15px;font-weight:700}
 .events-grid{grid-template-columns:1.1fr 1fr;align-items:center;gap:64px}
 .events-copy{min-width:0}
 .events-copy .event-list{margin-top:32px}
-.events-image{display:block;width:100%;height:auto;border-bottom:6px solid var(--lime)}
+.events-image{display:block;width:100%;height:auto;border:0}
 @media(max-width:1050px){.services-layout{grid-template-columns:1fr;gap:28px}.services-image{max-width:660px;margin:auto}.events-grid{gap:30px}.events h2{font-size:clamp(40px,5.5vw,64px)}}
 @media(max-width:700px){.services-layout{margin-top:28px}.services-layout .service-grid article{padding:22px 12px!important}.events-grid{grid-template-columns:1fr;gap:32px}.events h2{font-size:52px}.events-image{max-height:600px;object-fit:cover;object-position:center bottom}}
 
@@ -78,7 +78,7 @@ header nav{font-size:15px;font-weight:700}
  .about-text{grid-area:copy}
  .events-grid{grid-template-areas:"heading" "photo" "copy"}
  .events-copy>h2{grid-area:heading}
- .events-image{grid-area:photo}
+ .events-photo-frame{grid-area:photo}
  .events-copy .event-list{grid-area:copy;margin-top:0}
 }
 
@@ -87,3 +87,10 @@ header nav{font-size:15px;font-weight:700}
 .ticker .icon-star{width:30px;height:30px}
 .talent-bio .icon-arrow{width:20px;height:20px}
 @media(max-width:700px){.ticker .icon-star{width:clamp(16px,3.6vw,25px);height:clamp(16px,3.6vw,25px)}}
+
+/* Match the offset frame used by the team photograph. */
+.section-photo-frame{position:relative;min-width:0;width:100%;padding:0 22px 22px 0}
+.section-photo-frame::after{content:"";position:absolute;right:0;bottom:0;width:72%;height:72%;background:var(--purple);z-index:0}
+.section-photo-frame>img{position:relative;z-index:1;box-shadow:18px 18px 0 var(--lime)}
+@media(max-width:1050px){.services-photo-frame{max-width:682px;margin:auto}}
+@media(max-width:700px){.section-photo-frame{padding:0 12px 12px 0}.section-photo-frame::after{width:75%;height:65%}.section-photo-frame>img{box-shadow:12px 12px 0 var(--lime)}}
