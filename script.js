@@ -5,6 +5,8 @@ document.getElementById('inquiry').addEventListener('submit', async function(eve
   const status = document.getElementById('form-status');
   const form = new FormData(formElement);
   const payload = Object.fromEntries(form.entries());
+  // Compatibility with the deployed API, which still requires an event type.
+  payload.event = "Not specified";
   status.textContent = CONTACT_API_URL ? 'Sending your inquiry…' : 'Online inquiries will be available soon.';
   if (!CONTACT_API_URL) return;
   try {
