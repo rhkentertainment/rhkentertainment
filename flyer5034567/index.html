@@ -13,12 +13,12 @@
 <link rel="icon" type="image/png" href="/assets/favicon-32.png?v=5">
 <link rel="stylesheet" href="/styles.css?v=events-compact-5">
 <style>
-.flyer-content{padding-top:24px;padding-bottom:32px}.flyer-content p{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 20px}.flyer-content p a{text-decoration:underline}.flyer-content iframe{display:block;width:100%;height:80vh;min-height:480px;border:1px solid var(--line);background:#fff}@media(max-width:700px){.flyer-content{padding-top:20px;padding-bottom:24px}.flyer-content iframe{height:70vh;min-height:400px}}
+.flyer-content{padding-top:24px;padding-bottom:32px}.flyer-content p{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 20px}.flyer-content p a{text-decoration:underline}.flyer-pages{display:grid;gap:20px;max-width:1000px;margin:0 auto}.flyer-pages img{display:block;width:100%;height:auto}@media(max-width:700px){.flyer-content{padding-top:20px;padding-bottom:24px}.flyer-pages{gap:12px}}
 </style>
 </head>
 <body>
 <header><a class="brand" href="/#home" aria-label="RHK Entertainment home"><img src="/assets/logo-white.png" alt="RHK Entertainment"></a><nav aria-label="Main navigation"><a href="/#services">SERVICES</a><a href="/#talent">TALENT</a><a href="/#events">EVENTS</a></nav><a class="button small" href="/#contact">LET’S TALK <svg class="icon icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="M4 20 20 4M5 4h15v15"/></svg></a></header>
-<main class="flyer-content wrap"><p>If the document doesn’t display on your device, <a href="/assets/rhk-entertainment-services.pdf">open the PDF directly</a>.</p><iframe src="/assets/rhk-entertainment-services.pdf#view=FitH" title="RHK Entertainment services flyer"></iframe></main>
+<main class="flyer-content wrap"><p>If the document doesn’t display on your device, <a href="/assets/rhk-entertainment-services.pdf">open the PDF directly</a>.</p><div class="flyer-pages"><img src="/assets/rhk-flyer-page-1.jpg" alt="RHK Entertainment services flyer, page 1 of 2"><img src="/assets/rhk-flyer-page-2.jpg" alt="RHK Entertainment services flyer, page 2 of 2" loading="lazy"></div></main>
 <footer class="wrap"><img src="/assets/logo-white.png" alt="RHK Entertainment"><p>Good people. Great music. Unforgettable energy.</p><span>© <span id="year">2026</span> RHK Entertainment</span></footer>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
